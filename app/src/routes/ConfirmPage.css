@@ -1,0 +1,24 @@
+.title {
+	padding: 0 24px;
+	font-weight: bolder;
+	font-size: 42px;
+}
+.content {
+	padding: 64px 24px;
+	line-height: 2.0;
+}
+.price {
+	padding: 64px 24px;
+}
+.priceTitle {
+	float: left;
+	font-size: 40px;
+}
+.priceValue {
+	float: right;
+	font-size: 44px;
+	font-weight: bold;
+}
+.btnBox {
+	margin-top: 32px;
+}

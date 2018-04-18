@@ -1,0 +1,91 @@
+.popCard {
+	position: absolute;
+	width: 100%;
+	bottom: -165vh;
+	background: #ffffff;
+	border-top-left-radius: 35px;
+	border-top-right-radius: 35px;
+	box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.12);
+	z-index: 999;
+}
+.cardHeader {
+	margin-top: 42px;
+	padding: 0 42px;
+	font-size: 44px;
+	font-weight: bold;
+	line-height: 2.0;
+}
+.cardTitle {
+	padding: 0 42px;
+	font-size: 64px;
+	font-weight: bold;
+	line-height: 3.0;
+}
+.cardText {
+	padding: 0 42px;
+	font-size: 45px;
+}
+.allBtns {
+	width: 96%;
+	padding: 0 2%;
+	margin-top: 108px;
+}
+.btnBox {
+	width: 33%;
+	float: left;
+}
+.btnText {
+	width: 80%;
+	margin-left: 10%;
+	text-align: center;
+	margin-bottom: 8px;
+}
+.btnImg {
+	width: 80%;
+	margin-left: 10%;
+}
+
+.checkoutPage {
+	position: absolute;
+	width: 100%;
+	background: #ffffff;
+	top: 0;
+	z-index: 999;
+	line-height: 1.5;
+}
+.productName {
+	margin-top: 32px;
+	font-size: 42px;
+	font-weight: bold;
+	padding: 0 32px;
+}
+.productIntroShort {
+	font-size: 38px;
+	padding: 0 32px;
+}
+.productSku {
+	font-size: 38px;
+	color: #ACACAC;
+	padding: 0 32px;
+}
+.productPrice {
+	font-size: 58px;
+	font-weight: bolder;
+	line-height: 2.2;
+	padding: 0 32px;
+}
+.productIntroLong {
+	font-size: 38px;
+	color: #ACACAC;
+	line-height: 1.2;
+	padding: 0 32px;
+}
+.CFLBox {
+	margin: 64px 30px 0 30px;
+	border: 2px solid #C1C1C1;
+	padding: 24px 30px;
+	font-size: 32px;
+}
+.buyBtnBox {
+	margin: 48px auto;
+}
