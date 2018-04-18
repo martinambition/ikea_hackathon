@@ -28,7 +28,7 @@ class InfoPage extends React.Component {
 					>
 						{images.map(val => (
 							<img
-								src={`assets/product profile${val}.png`}
+								src={`assets/kivik${val}.png`}
 								key={val}
 								style={{ width: '100%', verticalAlign: 'top' }}
 							/>
