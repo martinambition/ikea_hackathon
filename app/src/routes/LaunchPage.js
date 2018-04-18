@@ -244,10 +244,10 @@ class LaunchPage extends React.Component {
 								<img src='assets/star.jpg' width='60%' />
 								<Flex style={{ padding: '0 32px' }}>
 									<Flex.Item style={{ textAlign: 'center' }} onClick={this.showCheckout}>
-										<img src='assets/buy me icon.png' className={style.btnImg} />
+										<img src='assets/buy.png' className={style.btnImg} />
 									</Flex.Item>
 									<Flex.Item style={{ textAlign: 'center' }}>
-										<img src='assets/find me icon.png' className={style.btnImg} />
+										<img src='assets/find.png' className={style.btnImg} />
 									</Flex.Item>
 								</Flex>
 								<div className={style.btnClear}></div>

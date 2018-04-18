@@ -47,13 +47,6 @@ class ConfirmPage extends React.Component {
 					<div className={style.clearFloat}></div>
 				</div>
 				<div className={style.btnsBox}>
-					<div style={{ width: '96%', 
-								  marginLeft: '2%',
-								  textAlign: 'center'
-								}}
-					>
-						———————&nbsp;&nbsp;Payment Methods&nbsp;&nbsp;———————
-					</div>
 					<div className={style.btnBox}>
 						<Button 
 							type="primary" 
