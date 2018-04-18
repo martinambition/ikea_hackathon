@@ -21,7 +21,7 @@ class LaunchPage extends React.Component {
 	}
 
 	componentDidMount() {
-		// this.props.onCardEnter();
+		this.props.onCardEnter();
 	}
 
 	showCheckout() {
@@ -31,11 +31,10 @@ class LaunchPage extends React.Component {
 	handleCardLeave() {
 		var that = this;
 		if (this.props.isCardGoingToLeave) {
-			that.props.onCardLeave(); 
-			// setTimeout(function(){ 
-			// 	that.props.onCardLeave(); 
-			// 	// hashHistory.push('/info');
-			// }, 500);
+			setTimeout(function(){ 
+				that.props.onCardLeave(); 
+				// hashHistory.push('/info');
+			}, 400);
 		}
 	}
 
@@ -80,10 +79,63 @@ class LaunchPage extends React.Component {
 			}
 		];
 
-		var displayStatus = this.props.isCardLeave ? 'block' : 'none';
-
-		return (
-			<div>
+		var content = null;
+		if (this.props.isCardLeave) {
+			content = (
+				<div className={style.checkoutPage}>
+					<WhiteSpace size='lg' />
+					<NavBar
+						mode="light"
+						icon={<Link to='/'><Icon type="left" color="#000" /></Link>}
+					>
+						{productInfo.name}
+					</NavBar>
+					<Carousel
+						autoplay={true}
+						infinite
+					>
+						{productInfo.image.map(val => (
+							<img
+								src={`assets/product profile${val}.png`}
+								key={val}
+								style={{ width: '100%', verticalAlign: 'top' }}
+							/>
+						))}
+					</Carousel>
+					<div className={style.productName}>{productInfo.name}</div>
+					<div className={style.productIntroShort}>{productInfo.short}</div>
+					<div className={style.productSku}>{productInfo.sku}</div>
+					<div className={style.productPrice}>{productInfo.price}</div>
+					<div className={style.productIntroLong}>{productInfo.long}</div>
+					<div className={style.CFLBox} style={{ marginTop: '64px' }}>
+						With chaise/Hillared beige
+						<Icon type='down' size='sm' style={{ float: 'right' }} />
+					</div>
+					<div className={style.CFLBox} style={{ borderBottomWidth: '1px' }}>
+						Models: Sofa
+						<Icon type='down' size='sm' style={{ float: 'right' }} />
+					</div>
+					<div className={style.buyBtnBox}>
+						<Link to='/order'>
+							<Button 
+								type="primary" 
+								style={{ width: '94%', 
+										 height: '100px',
+										 marginLeft: '3%',
+										 background: '#0057A3',
+										 border: '1px solid #0057A3',
+										 borderRadius: '0px',
+										 lineHeight: '100px'
+									  }}
+							>
+								Buy Now
+							</Button>
+						</Link>
+					</div>
+				</div>
+			);
+		} else {
+			content = (
 				<TweenOne
 					animation={animation} 
 					updateReStart={true} 
@@ -106,6 +158,19 @@ class LaunchPage extends React.Component {
 								Here is my design story.
 							</div>
 							<img src='assets/designer.png' className={style.cardImg} key="m2" />
+							<div className={style.cardText} key="m5">
+								A lot people like me,do you want try?
+								<img src='assets/star.jpg' width='60%' />
+								<Flex style={{ padding: '0 32px' }}>
+									<Flex.Item style={{ textAlign: 'center' }} onClick={this.showCheckout}>
+										<img src='assets/buy.png' className={style.btnImg} />
+									</Flex.Item>
+									<Flex.Item style={{ textAlign: 'center' }}>
+										<img src='assets/find.png' className={style.btnImg} />
+									</Flex.Item>
+								</Flex>
+								<div className={style.btnClear}></div>
+							</div>
 							<div className={style.cardText} key="m3">
 								<div style={{ float: 'left', width: '100%' }}>
 									Am I comfortable?
@@ -196,74 +261,15 @@ class LaunchPage extends React.Component {
 								</div>
 								<div className={style.clearFloat}></div>
 							</div>
-							<div className={style.cardText} key="m5">
-								A lot people like me,do you want try?
-								<img src='assets/star.jpg' width='60%' />
-								<Flex style={{ padding: '0 32px' }}>
-									<Flex.Item style={{ textAlign: 'center' }} onClick={this.showCheckout}>
-										<img src='assets/buy.png' className={style.btnImg} />
-									</Flex.Item>
-									<Flex.Item style={{ textAlign: 'center' }}>
-										<img src='assets/find.png' className={style.btnImg} />
-									</Flex.Item>
-								</Flex>
-								<div className={style.btnClear}></div>
-							</div>
 						</QueueAnim>
 					] : null}
 				</TweenOne>
+			);
+		}
 
-				<div className={style.checkoutPage} style={{ display: displayStatus }}>
-					<WhiteSpace size='lg' />
-					<NavBar
-						mode="light"
-						icon={<Link to='/'><Icon type="left" color="#000" /></Link>}
-					>
-						{productInfo.name}
-					</NavBar>
-					<Carousel
-						autoplay={true}
-						infinite
-					>
-						{productInfo.image.map(val => (
-							<img
-								src={`assets/product profile${val}.png`}
-								key={val}
-								style={{ width: '100%', verticalAlign: 'top' }}
-							/>
-						))}
-					</Carousel>
-					<div className={style.productName}>{productInfo.name}</div>
-					<div className={style.productIntroShort}>{productInfo.short}</div>
-					<div className={style.productSku}>{productInfo.sku}</div>
-					<div className={style.productPrice}>{productInfo.price}</div>
-					<div className={style.productIntroLong}>{productInfo.long}</div>
-					<div className={style.CFLBox} style={{ marginTop: '64px' }}>
-						With chaise/Hillared beige
-						<Icon type='down' size='sm' style={{ float: 'right' }} />
-					</div>
-					<div className={style.CFLBox} style={{ borderBottomWidth: '1px' }}>
-						Models: Sofa
-						<Icon type='down' size='sm' style={{ float: 'right' }} />
-					</div>
-					<div className={style.buyBtnBox}>
-						<Link to='/order'>
-							<Button 
-								type="primary" 
-								style={{ width: '94%', 
-										 height: '100px',
-										 marginLeft: '3%',
-										 background: '#0057A3',
-										 border: '1px solid #0057A3',
-										 borderRadius: '0px',
-										 lineHeight: '100px'
-									  }}
-							>
-								Buy Now
-							</Button>
-						</Link>
-					</div>
-				</div>
+		return (
+			<div style={{ overflow: 'hidden' }}>
+				{content}
 			</div>
 		);
 	}

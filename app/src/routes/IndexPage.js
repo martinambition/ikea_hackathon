@@ -13,6 +13,7 @@ class IndexPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			isNotificationClicked: false,
 			beconstate: '',
 			enterAnimConfig: {
 				y: "-92vh", 
@@ -49,25 +50,32 @@ class IndexPage extends React.Component {
 	}
 	rangeBeaconsInRegion() {
 	    try {
-	    	var delegate = new cordova.plugins.locationManager.Delegate();
-			var owner = this;
-      		delegate.didRangeBeaconsInRegion = function (pluginResult) {
-				owner.setState({
-					beconstate : pluginResult.beacons[0].accuracy
+	  //   	var delegate = new cordova.plugins.locationManager.Delegate();
+			// var owner = this;
+   //    		delegate.didRangeBeaconsInRegion = function (pluginResult) {
+			// 	owner.setState({
+			// 		beconstate : pluginResult.beacons[0].accuracy
+			// 	});
+	  //       //windows.size =  JSON.stringify(pluginResult);
+	  //       //alert(JSON.stringify(pluginResult));
+			// };
+			// var uuid = 'A540E533-550C-47CA-86A7-2F0AA2C9F226';
+			// var identifier = 'beaconOnTheMacBooksShelf';
+			// var minor = 1;
+			// var major = 2;
+			// var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
+			// cordova.plugins.locationManager.setDelegate(delegate);
+			// cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
+			// cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
+			// .fail(function(e) {  alert('startRangingBeaconsInRegion') })
+			// .done();
+			
+			cordova.plugins.notification.local.on('click', function (obj) {
+				this.setState({
+					isNotificationClicked: true,
+					isCardEnter: true
 				});
-	        //windows.size =  JSON.stringify(pluginResult);
-	        //alert(JSON.stringify(pluginResult));
-			};
-			var uuid = 'A540E533-550C-47CA-86A7-2F0AA2C9F226';
-			var identifier = 'beaconOnTheMacBooksShelf';
-			var minor = 1;
-			var major = 2;
-			var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(identifier, uuid, major, minor);
-			cordova.plugins.locationManager.setDelegate(delegate);
-			cordova.plugins.locationManager.requestWhenInUseAuthorization(); 
-			cordova.plugins.locationManager.startRangingBeaconsInRegion(beaconRegion)
-			.fail(function(e) {  alert('startRangingBeaconsInRegion') })
-			.done();
+			});
 	    }
 	    catch(err) {
 	    	alert(err);
@@ -98,22 +106,24 @@ class IndexPage extends React.Component {
 		return (
 			<div>
 				<img src='assets/ikea.png' width='100%' style={{ marginTop: '-16px' }} />
-				<LaunchPage 
-					enterAnimConfig={this.state.enterAnimConfig} 
-					leaveAnimConfig={this.state.leaveAnimConfig} 
-					isCardEnter={this.state.isCardEnter}
-					isCardGoingToLeave={this.state.isCardGoingToLeave} 
-					isCardLeave={this.state.isCardLeave} 
-					isBtnsShow={this.state.isBtnsShow}
-					showCheckoutPage={this.state.showCheckoutPage}
-					productInfo={this.state.productInfo} 
-					onShowCheckoutPage={this.onShowCheckoutPage} 
-					onCardEnter={this.onCardEnter}
-					onCardLeave={this.onCardLeave}
-					style={{
-						display: this.state.showLaunchPage ? "block" : "none" 
-					}}
-				/>
+				{(this.state.isNotificationClicked) ? [
+					<LaunchPage 
+						enterAnimConfig={this.state.enterAnimConfig} 
+						leaveAnimConfig={this.state.leaveAnimConfig} 
+						isCardEnter={this.state.isCardEnter}
+						isCardGoingToLeave={this.state.isCardGoingToLeave} 
+						isCardLeave={this.state.isCardLeave} 
+						isBtnsShow={this.state.isBtnsShow}
+						showCheckoutPage={this.state.showCheckoutPage}
+						productInfo={this.state.productInfo} 
+						onShowCheckoutPage={this.onShowCheckoutPage} 
+						onCardEnter={this.onCardEnter}
+						onCardLeave={this.onCardLeave}
+						style={{
+							display: this.state.showLaunchPage ? "block" : "none" 
+						}}
+					/>
+				] : null}
 			</div>
 		);
 	}
