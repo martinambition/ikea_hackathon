@@ -34,7 +34,7 @@ class LaunchPage extends React.Component {
 			setTimeout(function(){ 
 				// that.props.onCardLeave(); 
 				hashHistory.push('/info');
-			}, 500);
+			}, 300);
 		}
 	}
 
@@ -158,6 +158,19 @@ class LaunchPage extends React.Component {
 								Here is my design story.
 							</div>
 							<img src='assets/designer.png' className={style.cardImg} key="m2" />
+							<div className={style.cardText} key="m5">
+								A lot people like me,do you want try?
+								<img src='assets/star.jpg' width='60%' />
+								<Flex style={{ padding: '0 32px' }}>
+									<Flex.Item style={{ textAlign: 'center' }} onClick={this.showCheckout}>
+										<img src='assets/buy.png' className={style.btnImg} />
+									</Flex.Item>
+									<Flex.Item style={{ textAlign: 'center' }}>
+										<img src='assets/find.png' className={style.btnImg} />
+									</Flex.Item>
+								</Flex>
+								<div className={style.btnClear}></div>
+							</div>
 							<div className={style.cardText} key="m3">
 								<div style={{ float: 'left', width: '100%' }}>
 									Am I comfortable?
@@ -247,19 +260,6 @@ class LaunchPage extends React.Component {
 									<img src='assets/happy icon.png' width='75%'/>
 								</div>
 								<div className={style.clearFloat}></div>
-							</div>
-							<div className={style.cardText} key="m5">
-								A lot people like me,do you want try?
-								<img src='assets/star.jpg' width='60%' />
-								<Flex style={{ padding: '0 32px' }}>
-									<Flex.Item style={{ textAlign: 'center' }} onClick={this.showCheckout}>
-										<img src='assets/buy.png' className={style.btnImg} />
-									</Flex.Item>
-									<Flex.Item style={{ textAlign: 'center' }}>
-										<img src='assets/find.png' className={style.btnImg} />
-									</Flex.Item>
-								</Flex>
-								<div className={style.btnClear}></div>
 							</div>
 						</QueueAnim>
 					] : null}
