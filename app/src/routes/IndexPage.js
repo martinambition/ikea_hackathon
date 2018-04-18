@@ -13,7 +13,7 @@ class IndexPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isNotificationClicked: true,
+			isNotificationClicked: false,
 			beconstate: '',
 			enterAnimConfig: {
 				y: "-92vh", 
@@ -24,7 +24,7 @@ class IndexPage extends React.Component {
 				y: "-220vh", 
 				duration: 1200
 			},
-			isCardEnter: true,
+			isCardEnter: false,
 			isCardGoingToLeave: false,
 			isCardLeave: false,
 			showLaunchPage: true,
@@ -41,12 +41,23 @@ class IndexPage extends React.Component {
 			}
 		};
 		document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-
+		
 		this.onShowCheckoutPage = this.onShowCheckoutPage.bind(this);
 		this.onCardEnter = this.onCardEnter.bind(this);
 		this.onCardLeave = this.onCardLeave.bind(this);
 		this.onShowBuyBubble = this.onShowBuyBubble.bind(this);
 		this.onHideBuyBubble = this.onHideBuyBubble.bind(this);
+
+		var owner = this;
+		setTimeout(() => {
+			if(!owner.state.isCardEnter)
+			{
+				owner.setState({
+					isNotificationClicked: true,
+					isCardEnter: true
+				});
+			}
+		}, 2000);
 	}
 	onDeviceReady() {
 		this.rangeBeaconsInRegion();
@@ -73,12 +84,15 @@ class IndexPage extends React.Component {
 			// .fail(function(e) {  alert('startRangingBeaconsInRegion') })
 			// .done();
 			
+			var owner = this;
 			cordova.plugins.notification.local.on('click', function (obj) {
-				alert('test');
-				this.setState({
-					isNotificationClicked: true,
-					isCardEnter: true
-				});
+				if(!owner.state.isCardEnter)
+				{
+					owner.setState({
+						isNotificationClicked: true,
+						isCardEnter: true
+					});
+				}
 			});
 	    }
 	    catch(err) {
