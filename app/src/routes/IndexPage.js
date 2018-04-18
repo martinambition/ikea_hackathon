@@ -13,7 +13,7 @@ class IndexPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isNotificationClicked: false,
+			isNotificationClicked: true,
 			beconstate: '',
 			enterAnimConfig: {
 				y: "-92vh", 
@@ -21,15 +21,16 @@ class IndexPage extends React.Component {
 				delay: 800
 			},
 			leaveAnimConfig: {
-				y: "-200vh", 
-				duration: 500
+				y: "-220vh", 
+				duration: 1200
 			},
-			isCardEnter: false,
+			isCardEnter: true,
 			isCardGoingToLeave: false,
 			isCardLeave: false,
 			showLaunchPage: true,
 			showCheckoutPage: false,
 			isBtnsShow: [false, false, false],
+			showBuyBubble: false,
 			productInfo: {
 				name: "KIVIK",
 				price: "$799",
@@ -44,6 +45,8 @@ class IndexPage extends React.Component {
 		this.onShowCheckoutPage = this.onShowCheckoutPage.bind(this);
 		this.onCardEnter = this.onCardEnter.bind(this);
 		this.onCardLeave = this.onCardLeave.bind(this);
+		this.onShowBuyBubble = this.onShowBuyBubble.bind(this);
+		this.onHideBuyBubble = this.onHideBuyBubble.bind(this);
 	}
 	onDeviceReady() {
 		this.rangeBeaconsInRegion();
@@ -71,6 +74,7 @@ class IndexPage extends React.Component {
 			// .done();
 			
 			cordova.plugins.notification.local.on('click', function (obj) {
+				alert('test');
 				this.setState({
 					isNotificationClicked: true,
 					isCardEnter: true
@@ -86,7 +90,8 @@ class IndexPage extends React.Component {
 		this.setState({
 			showLaunchPage: false,
 			showCheckoutPage: true,
-			isCardGoingToLeave: true
+			isCardGoingToLeave: true,
+			showBuyBubble: false
 		});
 	}
 
@@ -99,6 +104,18 @@ class IndexPage extends React.Component {
 	onCardLeave() {
 		this.setState({
 			isCardLeave: true
+		});
+	}
+
+	onShowBuyBubble() {
+		this.setState({
+			showBuyBubble: true
+		});
+	}
+
+	onHideBuyBubble() {
+		this.setState({
+			showBuyBubble: false
 		});
 	}
 
@@ -115,10 +132,13 @@ class IndexPage extends React.Component {
 						isCardLeave={this.state.isCardLeave} 
 						isBtnsShow={this.state.isBtnsShow}
 						showCheckoutPage={this.state.showCheckoutPage}
+						showBuyBubble={this.state.showBuyBubble}
 						productInfo={this.state.productInfo} 
 						onShowCheckoutPage={this.onShowCheckoutPage} 
 						onCardEnter={this.onCardEnter}
 						onCardLeave={this.onCardLeave}
+						onShowBuyBubble={this.onShowBuyBubble}
+						onHideBuyBubble={this.onHideBuyBubble}
 						style={{
 							display: this.state.showLaunchPage ? "block" : "none" 
 						}}

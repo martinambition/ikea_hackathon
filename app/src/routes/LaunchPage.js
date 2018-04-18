@@ -18,6 +18,7 @@ class LaunchPage extends React.Component {
 		this.handleCardLeave = this.handleCardLeave.bind(this);
 		this.changeSelectPackage = this.changeSelectPackage.bind(this);
 		this.handleClickBuyBtn = this.handleClickBuyBtn.bind(this);
+		this.onChangeSlider = this.onChangeSlider.bind(this);
 	}
 
 	componentDidMount() {
@@ -39,10 +40,14 @@ class LaunchPage extends React.Component {
 		}
 	}
 
-	changeSelectPackage() {
-	}
+	changeSelectPackage() {}
 
-	handleClickBuyBtn() {
+	handleClickBuyBtn() {}
+
+	onChangeSlider(value) {
+		if (value === 5) {
+			this.props.onShowBuyBubble();
+		}
 	}
 
 	render() {
@@ -55,8 +60,8 @@ class LaunchPage extends React.Component {
 		if (this.props.isCardEnter) {
 			if(this.props.isCardGoingToLeave) {
 				cardStyle = {
-					bottom: '-200vh',
-					height: '200vh'
+					bottom: '-220vh',
+					height: '220vh'
 				};
 				animation = this.props.leaveAnimConfig;
 			} else {
@@ -92,7 +97,8 @@ class LaunchPage extends React.Component {
 	            	onChange={this.handleCardLeave}
 				>
 					<div className={style.cardHeader}>Message</div>
-					{(this.props.isCardEnter && !this.props.isCardGoingToLeave) ? [
+					{this.props.isCardEnter ? [
+						<div>
 						<QueueAnim 
 							type="right"
 							delay={1600}
@@ -125,7 +131,7 @@ class LaunchPage extends React.Component {
 											width: '86%',
 											margin: '36px 12% 40px 2%'
 										}}
-										defaultValue={5}
+										defaultValue={3}
 										min={1}
 										max={5} 
 										trackStyle={{
@@ -170,7 +176,7 @@ class LaunchPage extends React.Component {
 											width: '86%',
 											margin: '36px 12% 40px 2%'
 										}}
-										defaultValue={5}
+										defaultValue={3}
 										min={1}
 										max={5} 
 										trackStyle={{
@@ -189,6 +195,7 @@ class LaunchPage extends React.Component {
 											marginLeft: '-25px',
 											marginTop: '-12.5px',
 										}}
+										onChange={this.onChangeSlider}
 									/>
 								</div>
 								<div style={{ float: 'left', marginTop: '16px', width: '15%' }}>
@@ -196,6 +203,9 @@ class LaunchPage extends React.Component {
 								</div>
 								<div className={style.clearFloat}></div>
 							</div>
+							
+						</QueueAnim>
+						{this.props.showBuyBubble ? [
 							<div className={style.cardText} key="m5">
 								A lot people like me,do you want try?
 								<img src='assets/star.jpg' width='60%' />
@@ -209,7 +219,8 @@ class LaunchPage extends React.Component {
 								</Flex>
 								<div className={style.btnClear}></div>
 							</div>
-						</QueueAnim>
+						] : null}
+						</div>
 					] : null}
 				</TweenOne>
 
