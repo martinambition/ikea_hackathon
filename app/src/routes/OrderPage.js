@@ -4,7 +4,6 @@ import { Link } from 'dva/router';
 import { NavBar, Icon, List, InputItem, WhiteSpace, Button } from 'antd-mobile';
 
 import style from './OrderPage.css';
-import './ModifiedAntdMobile.css'
 
 
 class OrderPage extends React.Component {
