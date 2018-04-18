@@ -26,7 +26,7 @@ class ConfirmPage extends React.Component {
 				<div className={style.title}>Confirm order:</div>
 				<div className={style.content}>
 					<div style={{ borderBottom: '1px solid #000' }}>
-						<div style={{ float: 'left' }}>STOCKSUND Sofa</div>
+						<div style={{ float: 'left' }}>KIWIK Sofa</div>
 						<div style={{ float: 'right' }}>$799</div>
 						<div className={style.clearFloat}></div>
 					</div>
