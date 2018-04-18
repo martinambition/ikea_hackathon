@@ -1,16 +1,27 @@
 .page {
-	width: 92%;
-	margin-left: 4%;
-	padding: 64px 0;
 	word-break: break-all;
+	background: #E7ECEF;
+	padding-bottom: 64px;
 }
-.inputBox {
-	width: 80%;
-	border: 1px solid black;
-	border-radius: 20px;
+.itemIcon {
+	float: left;
+	width: 54px;
+	margin-top: 32px;
+	padding: 0 32px;
+	font-size: 32px;
+}
+.itemTitle {
+	float: left;
+	margin-top: 32px;
+	font-size: 32px;
+	line-height: 1.2;
 }
 .splitLine {
-	width: 100%;
+	width: 94%;
 	height: 1px;
 	border: 1px solid #000;
+	margin: 16px 3%;
+}
+.clearFloat {
+	clear: both;
 }

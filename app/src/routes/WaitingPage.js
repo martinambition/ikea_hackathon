@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { NavBar, Icon, List, InputItem } from 'antd-mobile';
+import { NavBar, Icon, List, InputItem, WhiteSpace } from 'antd-mobile';
 
 import style from './WaitingPage.css';
 
@@ -13,13 +13,14 @@ class WaitingPage extends React.Component {
 	componentDidMount() {
 		setTimeout(function() { 
 			window.location = '/#/confirm';
-		}, 3000);
+		}, 2000);
 	}
 
 	render() {
 		return (
-			<div>
-				<img src='assets/yay1.jpg' className={style.waitingImg} />
+			<div className={style.page}>
+				<WhiteSpace />
+				<img src='assets/car icon.png' className={style.waitingImg} />
 				<div className={style.waitingText}>
 					Wait a moment! <br />
 					We are finding for an Reseller <br />

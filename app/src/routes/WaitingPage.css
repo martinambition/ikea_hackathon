@@ -1,7 +1,15 @@
+.page {
+	width: 100vw;
+	height: 100vh;
+	background: #E8EEEF;
+}
 .waitingImg {
-	margin-top: 200px
+	margin-top: 200px;
+	width: 50vw;
+	margin-left: 25vw;
 }
 .waitingText {
+	margin-top: 64px;
 	font-size: 40px;
 	text-align: center;
 	line-height: 1.3;

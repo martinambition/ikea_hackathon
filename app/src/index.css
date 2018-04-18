@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'IKEASans';
+    src : url('../public/IKEA_fonts/IKEASans-Regular.ttf');
+}
+
 html, body, :global(#root) {
   height: 100%;
   width: 100%;
@@ -5,4 +10,5 @@ html, body, :global(#root) {
   overflow-x: hidden;
   font-family: Arial;
   background: #fff;
+  font-family: 'IKEASans';
 }

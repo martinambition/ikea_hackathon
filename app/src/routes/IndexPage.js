@@ -29,12 +29,12 @@ class IndexPage extends React.Component {
 			showCheckoutPage: false,
 			isBtnsShow: [false, false, false],
 			productInfo: {
-				name: "GRONLID",
-				price: "$1,395",
-				sku: "Inseros light brown",
+				name: "STOCKSUND",
+				price: "$599",
+				sku: "Nolhaga gray-beige",
 				image: ["1", "2", "3"],
-				short: "4-seat sofa, with chaise longues",
-				long: "Snuggle up, feel warmly embraced and enjoy cosy nights and lazy days. This sofa is extra deep, has soft and moveable back cushions, and comes in various sizes and shapes-everything for your comfort."
+				short: "Sofa, Nolhaga gray-beige,light brown/wood",
+				long: "A real showpiece with tailored cover available in different textures, sewn with piping and pleats.\nTurned wooden legs add to the detail. Irresistible comfort with thick, soft, pocket-spring cushions."
 			}
 		};
 		document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);

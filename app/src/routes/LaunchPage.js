@@ -3,7 +3,7 @@ import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import { NavBar, Icon, Carousel, Button, Picker } from 'antd-mobile';
+import { NavBar, Icon, Carousel, Button, Picker, WhiteSpace } from 'antd-mobile';
 
 import style from './LaunchPage.css';
 
@@ -80,6 +80,7 @@ class LaunchPage extends React.Component {
 		if (this.props.isCardLeave) {
 			content = (
 				<div className={style.checkoutPage}>
+					<WhiteSpace />
 					<NavBar
 						mode="light"
 						icon={<Icon type="left" color="#000" />}
@@ -93,7 +94,7 @@ class LaunchPage extends React.Component {
 					>
 						{productInfo.image.map(val => (
 							<img
-								src={`assets/yay${val}.jpg`}
+								src={`assets/product profile${val}.png`}
 								key={val}
 								style={{ width: '100%', verticalAlign: 'top' }}
 							/>
@@ -104,26 +105,34 @@ class LaunchPage extends React.Component {
 					<div className={style.productSku}>{productInfo.sku}</div>
 					<div className={style.productPrice}>{productInfo.price}</div>
 					<div className={style.productIntroLong}>{productInfo.long}</div>
+					<div className={style.CFLBox} style={{ marginTop: '64px' }}>
+						Cover: Nolhaga gray-beige
+						<Icon type='down' size='sm' style={{ float: 'right' }} />
+					</div>
 					<div className={style.CFLBox}>
-						With chaise longues/Inseros light brown
+						Legs: Light brown
+						<Icon type='down' size='sm' style={{ float: 'right' }} />
+					</div>
+					<div className={style.CFLBox} style={{ borderBottomWidth: '1px' }}>
+						Models: Sofa
 						<Icon type='down' size='sm' style={{ float: 'right' }} />
 					</div>
 					<div className={style.buyBtnBox}>
-						<Link to='/waiting'></Link>
-						<Button 
-							type="primary" 
-							style={{ width: '94%', 
-									 height: '100px',
-									 marginLeft: '3%',
-									 background: '#0356B1',
-									 border: '1px solid #0356B1',
-									 borderRadius: '50px',
-									 lineHeight: '100px'
-								  }}
-							onClick={this.handleClickBuyBtn}
-						>
-							Buy Now
-						</Button>
+						<Link to='/order'>
+							<Button 
+								type="primary" 
+								style={{ width: '94%', 
+										 height: '100px',
+										 marginLeft: '3%',
+										 background: '#0057A3',
+										 border: '1px solid #0057A3',
+										 borderRadius: '0px',
+										 lineHeight: '100px'
+									  }}
+							>
+								Buy Now
+							</Button>
+						</Link>
 					</div>
 				</div>
 			);
@@ -137,37 +146,35 @@ class LaunchPage extends React.Component {
 	            	onChange={this.handleCardLeave}
 				>
 					<div className={style.cardHeader}>Message</div>
-					<div className={style.cardText}>
-						Hello,I'm the Sofa STOCKSUND, and I was designed by <b>Nike Karlsson</b>.
-					</div>
-					<img src='assets/test.jpg' className={style.cardImg}/>
-					<div className={style.cardText}>
-						We would appreciate your Feedback or even deliver one piece directly to your home?!
-						<div className={style.allBtns}>
-							{this.props.isCardEnter ? [
-								<QueueAnim 
-									type="bottom"
-									delay={300}
-									duration={550}
-									key="qa"
-								>
+					{this.props.isCardEnter ? [
+						<QueueAnim 
+							type="right"
+							delay={500}
+							duration={800} 
+							interval={500}
+							key="m"
+						>
+							<div className={style.cardText} key="m1">
+								Hello,I'm the Sofa STOCKSUND, and I was designed by <b>Nike Karlsson</b>.
+							</div>
+							<img src='assets/designer.png' className={style.cardImg} key="m2" />
+							<div className={style.cardText} key="m3">
+								We would appreciate your Feedback or even deliver one piece directly to your home?!
+								<div className={style.allBtns}>
 									<div className={style.btnBox} key="1">
-										<div className={style.btnText}>Review me</div>
-										<img src='assets/review.png' className={style.btnImg} />
+										<img src='assets/review me icn.png' className={style.btnImg} />
 									</div>
 									<div className={style.btnBox} onClick={this.showCheckout} key="2">
-										<div className={style.btnText}>Buy me</div>
-										<img src='assets/buy.png' className={style.btnImg} />
+										<img src='assets/buy me icon.png' className={style.btnImg} />
 									</div>
 									<div className={style.btnBox} key="3">
-										<div className={style.btnText}>Find more</div>
-										<img src='assets/more.png' className={style.btnImg} />
+										<img src='assets/find me icon.png' className={style.btnImg} />
 									</div>
-								</QueueAnim>
-							] : null}
-						</div>
-						<div className={style.btnClear}></div>
-					</div>
+								</div>
+								<div className={style.btnClear}></div>
+							</div>
+						</QueueAnim>
+					] : null}
 				</TweenOne>
 			);
 		}
