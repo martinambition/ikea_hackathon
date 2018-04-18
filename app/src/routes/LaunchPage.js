@@ -87,7 +87,7 @@ class LaunchPage extends React.Component {
 					<WhiteSpace size='lg' />
 					<NavBar
 						mode="light"
-						icon={<Path to='/'><Icon type="left" color="#000" /></Path>}
+						icon={<Link to='/'><Icon type="left" color="#000" /></Link>}
 					>
 						{productInfo.name}
 					</NavBar>
