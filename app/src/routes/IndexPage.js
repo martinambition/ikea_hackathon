@@ -47,17 +47,18 @@ class IndexPage extends React.Component {
 		this.onCardLeave = this.onCardLeave.bind(this);
 		this.onShowBuyBubble = this.onShowBuyBubble.bind(this);
 		this.onHideBuyBubble = this.onHideBuyBubble.bind(this);
+		this.onLetCardEnter = this.onLetCardEnter.bind(this);
 
-		var owner = this;
-		setTimeout(() => {
-			if(!owner.state.isCardEnter)
-			{
-				owner.setState({
-					isNotificationClicked: true,
-					isCardEnter: true
-				});
-			}
-		}, 2000);
+		// var owner = this;
+		// setTimeout(() => {
+		// 	if(!owner.state.isCardEnter)
+		// 	{
+		// 		owner.setState({
+		// 			isNotificationClicked: true,
+		// 			isCardEnter: true
+		// 		});
+		// 	}
+		// }, 2000);
 	}
 	onDeviceReady() {
 		this.rangeBeaconsInRegion();
@@ -133,10 +134,21 @@ class IndexPage extends React.Component {
 		});
 	}
 
+	onLetCardEnter() {
+		if (!this.state.isNotificationClicked) {
+			this.setState({
+				isNotificationClicked: true,
+				isCardEnter: true
+			});
+		}
+	}
+
 	render() {
 		return (
 			<div>
-				<img src='assets/ikea.png' width='100%' style={{ marginTop: '-16px' }} />
+				<img src='assets/ikea.png' width='100%' style={{ marginTop: '-16px' }}
+					onClick={this.onLetCardEnter}
+				/>
 				{(this.state.isNotificationClicked) ? [
 					<LaunchPage 
 						enterAnimConfig={this.state.enterAnimConfig} 
@@ -153,6 +165,7 @@ class IndexPage extends React.Component {
 						onCardLeave={this.onCardLeave}
 						onShowBuyBubble={this.onShowBuyBubble}
 						onHideBuyBubble={this.onHideBuyBubble}
+						onLetCardEnter={this.onLetCardEnter}
 						style={{
 							display: this.state.showLaunchPage ? "block" : "none" 
 						}}

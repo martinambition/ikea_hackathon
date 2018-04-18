@@ -238,7 +238,7 @@ class LaunchPage extends React.Component {
 					>
 						{productInfo.image.map(val => (
 							<img
-								src={`assets/product profile${val}.png`}
+								src={`assets/kivik${val}.png`}
 								key={val}
 								style={{ width: '100%', verticalAlign: 'top' }}
 							/>
