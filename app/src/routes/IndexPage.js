@@ -16,7 +16,8 @@ class IndexPage extends React.Component {
 			beconstate: '',
 			enterAnimConfig: {
 				y: "-92vh", 
-				duration: 500
+				duration: 500,
+				delay: 800
 			},
 			leaveAnimConfig: {
 				y: "-200vh", 

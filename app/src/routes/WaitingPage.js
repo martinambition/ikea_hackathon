@@ -26,8 +26,7 @@ class WaitingPage extends React.Component {
 				<img src='assets/car icon.png' className={style.waitingImg} />
 				<div className={style.waitingText}>
 					Wait a moment! <br />
-					We are finding for an Reseller <br />
-					getting the job done.
+					We are having your order done.
 				</div>
 			</div>
 		);

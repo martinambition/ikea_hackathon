@@ -147,9 +147,9 @@ class LaunchPage extends React.Component {
 					{(this.props.isCardEnter && !this.props.isCardGoingToLeave) ? [
 						<QueueAnim 
 							type="right"
-							delay={500}
-							duration={800} 
-							interval={500}
+							delay={1600}
+							duration={1000} 
+							interval={800}
 							key="m"
 						>
 							<div className={style.cardText} key="m1">
