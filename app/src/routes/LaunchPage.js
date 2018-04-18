@@ -167,36 +167,43 @@ class LaunchPage extends React.Component {
 								<div style={{ float: 'left', width: '100%' }}>
 									Am I comfortable?
 								</div>
-								<div style={{ float: 'left', marginTop: '16px' }}>
+								<div style={{ float: 'left', marginTop: '16px', width: '15%' }}>
 									<img src='assets/sad icon.png' width='75%' />
 								</div>
-								<Slider 
+								<div 
 									style={{ 
 										float: 'left',
-										width: '60%',
-										margin: '36px 8% 40px 2%'
+										width: '70%'
 									}}
-									defaultValue={5}
-									min={1}
-									max={5} 
-									trackStyle={{
-										height: '25px',
-										background: 'linear-gradient(90deg, #61DFFA, #F7E81C)',
-										borderRadius: '12px',
-									}}
-									railStyle={{
-										height: '25px',
-										borderRadius: '12px',
-									}}
-									handleStyle={{
-										borderColor: '#000',
-										height: '50px',
-										width: '50px',
-										marginLeft: '-25px',
-										marginTop: '-12.5px',
-									}}
-								/>
-								<div style={{ float: 'left', marginTop: '16px' }}>
+								>
+									<Slider 
+										style={{ 
+											float: 'left',
+											width: '86%',
+											margin: '36px 12% 40px 2%'
+										}}
+										defaultValue={5}
+										min={1}
+										max={5} 
+										trackStyle={{
+											height: '25px',
+											background: 'linear-gradient(90deg, #61DFFA, #F7E81C)',
+											borderRadius: '12px',
+										}}
+										railStyle={{
+											height: '25px',
+											borderRadius: '12px',
+										}}
+										handleStyle={{
+											borderColor: '#000',
+											height: '50px',
+											width: '50px',
+											marginLeft: '-25px',
+											marginTop: '-12.5px',
+										}}
+									/>
+								</div>
+								<div style={{ float: 'left', marginTop: '16px', width: '15%' }}>
 									<img src='assets/happy icon.png' width='75%'/>
 								</div>
 								<div className={style.clearFloat}></div>
@@ -205,37 +212,44 @@ class LaunchPage extends React.Component {
 								<div style={{ float: 'left', width: '100%' }}>
 									Do I look good?
 								</div>
-								<div style={{ float: 'left', marginTop: '16px' }}>
+								<div style={{ float: 'left', marginTop: '16px', width: '15%' }}>
 									<img src='assets/sad icon.png' width='75%' />
 								</div>
-								<Slider 
+								<div 
 									style={{ 
 										float: 'left',
-										width: '60%',
-										margin: '36px 8% 40px 2%'
+										width: '70%'
 									}}
-									defaultValue={5}
-									min={1}
-									max={5} 
-									trackStyle={{
-										height: '25px',
-										background: 'linear-gradient(90deg, #61DFFA, #F7E81C)',
-										borderRadius: '12px',
-									}}
-									railStyle={{
-										height: '25px',
-										borderRadius: '12px',
-									}}
-									handleStyle={{
-										borderColor: '#000',
-										height: '50px',
-										width: '50px',
-										marginLeft: '-25px',
-										marginTop: '-12.5px',
-									}}
-								/>
-								<div style={{ float: 'left', marginTop: '16px' }}>
-									<img src='assets/happy icon.png' width='75%' />
+								>
+									<Slider 
+										style={{ 
+											float: 'left',
+											width: '86%',
+											margin: '36px 12% 40px 2%'
+										}}
+										defaultValue={5}
+										min={1}
+										max={5} 
+										trackStyle={{
+											height: '25px',
+											background: 'linear-gradient(90deg, #61DFFA, #F7E81C)',
+											borderRadius: '12px',
+										}}
+										railStyle={{
+											height: '25px',
+											borderRadius: '12px',
+										}}
+										handleStyle={{
+											borderColor: '#000',
+											height: '50px',
+											width: '50px',
+											marginLeft: '-25px',
+											marginTop: '-12.5px',
+										}}
+									/>
+								</div>
+								<div style={{ float: 'left', marginTop: '16px', width: '15%' }}>
+									<img src='assets/happy icon.png' width='75%'/>
 								</div>
 								<div className={style.clearFloat}></div>
 							</div>
