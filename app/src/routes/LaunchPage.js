@@ -173,7 +173,7 @@ class LaunchPage extends React.Component {
 								<Slider 
 									style={{ 
 										float: 'left',
-										width: '62%',
+										width: '60%',
 										margin: '36px 8% 40px 2%'
 									}}
 									defaultValue={5}
@@ -211,7 +211,7 @@ class LaunchPage extends React.Component {
 								<Slider 
 									style={{ 
 										float: 'left',
-										width: '62%',
+										width: '60%',
 										margin: '36px 8% 40px 2%'
 									}}
 									defaultValue={5}
