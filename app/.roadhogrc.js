@@ -10,6 +10,8 @@ export default {
   entry: 'src/index.js',
   outputPath: "../www/",
   svgSpriteLoaderDirs: svgSpriteDirs,
+  assetsPublicPath: './',
+  publicPath: "./",
   "theme": "./theme.config.js",
   env: {
     development: {

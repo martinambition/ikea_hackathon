@@ -89,8 +89,8 @@
         CLBeaconRegion *beaconRegion = (CLBeaconRegion *)region;
         
         UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
-        content.title = [NSString localizedUserNotificationStringForKey:@"IKea Product" arguments:nil];
-        content.body = [NSString localizedUserNotificationStringForKey:@"We found one IKEA Product"
+        content.title = [NSString localizedUserNotificationStringForKey:@"IKEA" arguments:nil];
+        content.body = [NSString localizedUserNotificationStringForKey:@"I'm KIWIK sofa comes from Sweden. Crap the chance and check me out"
                                                              arguments:nil];
         //content.userInfo[@"major"] = beaconRegion.major
         content.userInfo  =  @{@"major": beaconRegion.major};
