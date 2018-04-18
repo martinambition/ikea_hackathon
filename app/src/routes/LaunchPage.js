@@ -2,7 +2,7 @@ import React from 'react';
 import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import { connect } from 'dva';
-import { Link } from 'dva/router';
+import { Link, hashHistory } from 'dva/router';
 import { NavBar, Icon, Carousel, Button, Picker, WhiteSpace, Slider, Flex } from 'antd-mobile';
 
 import style from './LaunchPage.css';
@@ -32,17 +32,16 @@ class LaunchPage extends React.Component {
 		var that = this;
 		if (this.props.isCardGoingToLeave) {
 			setTimeout(function(){ 
-				that.props.onCardLeave(); 
-			}, 400);
+				// that.props.onCardLeave(); 
+				hashHistory.push('/info');
+			}, 500);
 		}
 	}
 
-	changeSelectPackage(value) {
-		console.log(value)
+	changeSelectPackage() {
 	}
 
 	handleClickBuyBtn() {
-		window.location = '/#/waiting';
 	}
 
 	render() {
@@ -55,8 +54,8 @@ class LaunchPage extends React.Component {
 		if (this.props.isCardEnter) {
 			if(this.props.isCardGoingToLeave) {
 				cardStyle = {
-					bottom: '-210vh',
-					height: '210vh'
+					bottom: '-200vh',
+					height: '200vh'
 				};
 				animation = this.props.leaveAnimConfig;
 			} else {
@@ -109,11 +108,7 @@ class LaunchPage extends React.Component {
 					<div className={style.productPrice}>{productInfo.price}</div>
 					<div className={style.productIntroLong}>{productInfo.long}</div>
 					<div className={style.CFLBox} style={{ marginTop: '64px' }}>
-						Cover: Nolhaga gray-beige
-						<Icon type='down' size='sm' style={{ float: 'right' }} />
-					</div>
-					<div className={style.CFLBox}>
-						Legs: Light brown
+						With chaise/Hillared beige
 						<Icon type='down' size='sm' style={{ float: 'right' }} />
 					</div>
 					<div className={style.CFLBox} style={{ borderBottomWidth: '1px' }}>
@@ -149,7 +144,7 @@ class LaunchPage extends React.Component {
 	            	onChange={this.handleCardLeave}
 				>
 					<div className={style.cardHeader}>Message</div>
-					{this.props.isCardEnter ? [
+					{(this.props.isCardEnter && !this.props.isCardGoingToLeave) ? [
 						<QueueAnim 
 							type="right"
 							delay={500}

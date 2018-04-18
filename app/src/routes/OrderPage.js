@@ -139,7 +139,7 @@ class OrderPage extends React.Component {
 						marginRight: 32,
 						fontSize: 32
 					}}>
-						$599
+						$799
 					</div>
 					<div className={style.clearFloat}></div>
 					<div style={{ 
@@ -171,7 +171,7 @@ class OrderPage extends React.Component {
 						marginTop: 32,
 						fontSize: 48
 					}}>
-						$611
+						$811
 					</div>
 					<div className={style.clearFloat}></div>
 				</div>

@@ -27,7 +27,7 @@ class ConfirmPage extends React.Component {
 				<div className={style.content}>
 					<div style={{ borderBottom: '1px solid #000' }}>
 						<div style={{ float: 'left' }}>STOCKSUND Sofa</div>
-						<div style={{ float: 'right' }}>$599</div>
+						<div style={{ float: 'right' }}>$799</div>
 						<div className={style.clearFloat}></div>
 					</div>
 					<div style={{ borderBottom: '1px solid #000' }}>
@@ -43,7 +43,7 @@ class ConfirmPage extends React.Component {
 				</div>
 				<div className={style.price}>
 					<div className={style.priceTitle}>Order total</div>
-					<div className={style.priceValue}>$611</div>
+					<div className={style.priceValue}>$811</div>
 					<div className={style.clearFloat}></div>
 				</div>
 				<div className={style.btnsBox}>

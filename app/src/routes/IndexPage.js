@@ -19,7 +19,7 @@ class IndexPage extends React.Component {
 				duration: 500
 			},
 			leaveAnimConfig: {
-				y: "-210vh", 
+				y: "-200vh", 
 				duration: 500
 			},
 			isCardEnter: false,
@@ -29,12 +29,12 @@ class IndexPage extends React.Component {
 			showCheckoutPage: false,
 			isBtnsShow: [false, false, false],
 			productInfo: {
-				name: "STOCKSUND",
-				price: "$599",
-				sku: "Nolhaga gray-beige",
+				name: "KIVIK",
+				price: "$799",
+				sku: "Sofa, Hillared with chaise, Hillared beige",
 				image: ["1", "2", "3"],
-				short: "Sofa, Nolhaga gray-beige,light brown/wood",
-				long: "A real showpiece with tailored cover available in different textures, sewn with piping and pleats.\nTurned wooden legs add to the detail. Irresistible comfort with thick, soft, pocket-spring cushions."
+				short: "",
+				long: "Cuddle up in the soft comfort of KIVIK sofa. The generous size, low armrests, and memory foam that adapts to the contours of your body invites many hours of naps, socializing, and relaxation."
 			}
 		};
 		document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
