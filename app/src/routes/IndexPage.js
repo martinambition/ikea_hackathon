@@ -40,10 +40,21 @@ class IndexPage extends React.Component {
 			}
 		};
 		document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-
+		
 		this.onShowCheckoutPage = this.onShowCheckoutPage.bind(this);
 		this.onCardEnter = this.onCardEnter.bind(this);
 		this.onCardLeave = this.onCardLeave.bind(this);
+		var owner = this;
+		setTimeout(() => {
+			if(!owner.state.isCardEnter)
+			{
+				owner.setState({
+					isNotificationClicked: true,
+					isCardEnter: true
+				});
+			}
+		}, 2000);
+		
 	}
 	onDeviceReady() {
 		this.rangeBeaconsInRegion();
@@ -70,11 +81,15 @@ class IndexPage extends React.Component {
 			// .fail(function(e) {  alert('startRangingBeaconsInRegion') })
 			// .done();
 			
+			var owner = this;
 			cordova.plugins.notification.local.on('click', function (obj) {
-				this.setState({
-					isNotificationClicked: true,
-					isCardEnter: true
-				});
+				if(!owner.state.isCardEnter)
+				{
+					owner.setState({
+						isNotificationClicked: true,
+						isCardEnter: true
+					});
+				}
 			});
 	    }
 	    catch(err) {
