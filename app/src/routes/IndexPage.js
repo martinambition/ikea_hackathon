@@ -15,12 +15,12 @@ class IndexPage extends React.Component {
 		this.state = {
 			beconstate: '',
 			enterAnimConfig: {
-				y: "-90vh", 
+				y: "-92vh", 
 				duration: 500
 			},
 			leaveAnimConfig: {
-				y: "-190vh", 
-				duration: 600
+				y: "-210vh", 
+				duration: 500
 			},
 			isCardEnter: false,
 			isCardGoingToLeave: false,
@@ -96,13 +96,7 @@ class IndexPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<div style={{ width: "100%", 
-							  height: "100vh", 
-							  background: "rgba(0, 0, 0, 0.2)", 
-							  overflow: "hidden"
-							}}
-				>
-				</div>
+				<img src='assets/ikea.png' width='100%' style={{ marginTop: '-16px' }} />
 				<LaunchPage 
 					enterAnimConfig={this.state.enterAnimConfig} 
 					leaveAnimConfig={this.state.leaveAnimConfig} 

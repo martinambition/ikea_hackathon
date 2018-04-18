@@ -14,7 +14,7 @@ class ConfirmPage extends React.Component {
 	render() {
 		return (
 			<div>
-				<WhiteSpace />
+				<WhiteSpace size='lg' />
 				<img 
 					src='assets/customer order header image.png' 
 					width='90%' 

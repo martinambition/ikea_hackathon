@@ -14,7 +14,18 @@ class OrderPage extends React.Component {
 	render() {
 		return (
 			<div className={style.page}>
-				<WhiteSpace />
+				<WhiteSpace size='lg' style={{ background: '#fff' }} />
+				<NavBar
+					mode="light"
+					icon={
+						<Link to='/'>
+							<Icon type="left" color="#000" />
+						</Link>
+					}
+					style={{ marginTop: '-2px' }}
+				>
+					Order
+				</NavBar>
 				<div>
 					<div className={style.itemIcon}>
 						<img src='assets/email icon.png' width='100%' />

@@ -1,20 +1,21 @@
 .popCard {
 	position: absolute;
 	width: 100%;
-	background: url(../../public/assets/card bg.png) no-repeat;
+	background: url(../../public/assets/card bg 1.png) no-repeat;
 	background-size: 100%;
 	border-top-left-radius: 35px;
 	border-top-right-radius: 35px;
-	box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.12);
+	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
 	z-index: 999;
+	padding-bottom: 24px;
 }
 .cardHeader {
-	padding: 42px 40px 16px 40px;
+	padding: 48px 40px 40px 48px;
 	font-size: 45px;
 	font-weight: bolder;
 }
 .cardText {
-	margin: 42px 56px 42px 40px;
+	margin: 40px 56px 40px 40px;
 	padding: 24px 24px 24px 36px;
 	font-size: 32px;
 	line-height: 1.4;
@@ -27,9 +28,9 @@
 	height: 0;
 	position: absolute;
 	bottom: 0;
-	right: -18px;
+	right: -16px;
 	border-style: solid;
-	border-width: 20px 9px;
+	border-width: 16px 9px;
 	border-color: transparent transparent #fff #fff;
 	font-size: 0;
 }
@@ -42,19 +43,8 @@
 	width: 100%;
 	margin-top: 24px;
 }
-.btnBox {
-	width: 33%;
-	float: left;
-}
-.btnText {
-	width: 70%;
-	margin: 0 15% 8px 15%;
-	text-align: center;
-	font-size: 26px;
-}
 .btnImg {
-	width: 64%;
-	margin: 0 18%;
+	width: 50%;
 }
 .btnClear {
 	clear: both;
@@ -104,4 +94,8 @@
 }
 .buyBtnBox {
 	margin: 48px auto;
+}
+
+.clearFloat {
+	clear: both;
 }

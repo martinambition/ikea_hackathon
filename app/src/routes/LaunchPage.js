@@ -3,9 +3,12 @@ import TweenOne from 'rc-tween-one';
 import QueueAnim from 'rc-queue-anim';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import { NavBar, Icon, Carousel, Button, Picker, WhiteSpace } from 'antd-mobile';
+import { NavBar, Icon, Carousel, Button, Picker, WhiteSpace, Slider, Flex } from 'antd-mobile';
 
 import style from './LaunchPage.css';
+
+import 'emoji-mart/css/emoji-mart.css'
+import { Emoji } from 'emoji-mart'
 
 
 class LaunchPage extends React.Component {
@@ -30,7 +33,7 @@ class LaunchPage extends React.Component {
 		if (this.props.isCardGoingToLeave) {
 			setTimeout(function(){ 
 				that.props.onCardLeave(); 
-			}, 500);
+			}, 400);
 		}
 	}
 
@@ -50,18 +53,19 @@ class LaunchPage extends React.Component {
 		var animation;
 		var cardStyle;
 		if (this.props.isCardEnter) {
-			if(this.props.showCheckoutPage) {
+			if(this.props.isCardGoingToLeave) {
+				cardStyle = {
+					bottom: '-210vh',
+					height: '210vh'
+				};
 				animation = this.props.leaveAnimConfig;
-				cardStyle = {
-					bottom: '-190vh',
-					height: '190vh'
-				};
 			} else {
-				animation = this.props.enterAnimConfig;
 				cardStyle = {
-					bottom: '-90vh',
-					height: '90vh'
+					bottom: '-92vh',
+					height: '92vh',
+					overflowY: 'scroll'
 				};
+				animation = this.props.enterAnimConfig;
 			}
 		};
 
@@ -80,11 +84,10 @@ class LaunchPage extends React.Component {
 		if (this.props.isCardLeave) {
 			content = (
 				<div className={style.checkoutPage}>
-					<WhiteSpace />
+					<WhiteSpace size='lg' />
 					<NavBar
 						mode="light"
-						icon={<Icon type="left" color="#000" />}
-						onLeftClick={() => console.log('onLeftClick')}
+						icon={<Path to='/'><Icon type="left" color="#000" /></Path>}
 					>
 						{productInfo.name}
 					</NavBar>
@@ -155,22 +158,98 @@ class LaunchPage extends React.Component {
 							key="m"
 						>
 							<div className={style.cardText} key="m1">
-								Hello,I'm the Sofa STOCKSUND, and I was designed by <b>Nike Karlsson</b>.
+								Hello,I'm the Sofa KIWIK, and I was designed by <b>Ola Wihlborg</b>.
+								<br/>
+								Here is my design story.
 							</div>
 							<img src='assets/designer.png' className={style.cardImg} key="m2" />
 							<div className={style.cardText} key="m3">
-								We would appreciate your Feedback or even deliver one piece directly to your home?!
-								<div className={style.allBtns}>
-									<div className={style.btnBox} key="1">
-										<img src='assets/review me icn.png' className={style.btnImg} />
-									</div>
-									<div className={style.btnBox} onClick={this.showCheckout} key="2">
-										<img src='assets/buy me icon.png' className={style.btnImg} />
-									</div>
-									<div className={style.btnBox} key="3">
-										<img src='assets/find me icon.png' className={style.btnImg} />
-									</div>
+								<div style={{ float: 'left', width: '100%' }}>
+									Am I comfortable?
 								</div>
+								<div style={{ float: 'left', marginTop: '16px' }}>
+									<img src='assets/sad icon.png' width='75%' />
+								</div>
+								<Slider 
+									style={{ 
+										float: 'left',
+										width: '62%',
+										margin: '36px 8% 40px 2%'
+									}}
+									defaultValue={5}
+									min={1}
+									max={5} 
+									trackStyle={{
+										height: '25px',
+										background: 'linear-gradient(90deg, #61DFFA, #F7E81C)',
+										borderRadius: '12px',
+									}}
+									railStyle={{
+										height: '25px',
+										borderRadius: '12px',
+									}}
+									handleStyle={{
+										borderColor: '#000',
+										height: '50px',
+										width: '50px',
+										marginLeft: '-25px',
+										marginTop: '-12.5px',
+									}}
+								/>
+								<div style={{ float: 'left', marginTop: '16px' }}>
+									<img src='assets/happy icon.png' width='75%'/>
+								</div>
+								<div className={style.clearFloat}></div>
+							</div>
+							<div className={style.cardText} key="m4">
+								<div style={{ float: 'left', width: '100%' }}>
+									Do I look good?
+								</div>
+								<div style={{ float: 'left', marginTop: '16px' }}>
+									<img src='assets/sad icon.png' width='75%' />
+								</div>
+								<Slider 
+									style={{ 
+										float: 'left',
+										width: '62%',
+										margin: '36px 8% 40px 2%'
+									}}
+									defaultValue={5}
+									min={1}
+									max={5} 
+									trackStyle={{
+										height: '25px',
+										background: 'linear-gradient(90deg, #61DFFA, #F7E81C)',
+										borderRadius: '12px',
+									}}
+									railStyle={{
+										height: '25px',
+										borderRadius: '12px',
+									}}
+									handleStyle={{
+										borderColor: '#000',
+										height: '50px',
+										width: '50px',
+										marginLeft: '-25px',
+										marginTop: '-12.5px',
+									}}
+								/>
+								<div style={{ float: 'left', marginTop: '16px' }}>
+									<img src='assets/happy icon.png' width='75%' />
+								</div>
+								<div className={style.clearFloat}></div>
+							</div>
+							<div className={style.cardText} key="m5">
+								A lot people like me,do you want try?
+								<img src='assets/star.jpg' width='60%' />
+								<Flex style={{ padding: '0 32px' }}>
+									<Flex.Item style={{ textAlign: 'center' }} onClick={this.showCheckout}>
+										<img src='assets/buy me icon.png' className={style.btnImg} />
+									</Flex.Item>
+									<Flex.Item style={{ textAlign: 'center' }}>
+										<img src='assets/find me icon.png' className={style.btnImg} />
+									</Flex.Item>
+								</Flex>
 								<div className={style.btnClear}></div>
 							</div>
 						</QueueAnim>
