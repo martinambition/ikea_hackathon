@@ -57,7 +57,7 @@ class IndexPage extends React.Component {
 					isCardEnter: true
 				});
 			}
-		}, 2000);
+		}, 4000);
 	}
 	onDeviceReady() {
 		this.rangeBeaconsInRegion();
